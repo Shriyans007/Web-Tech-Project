@@ -65,6 +65,7 @@ nav {
 
 .nav-links a:hover {
     background: #415A77;
+    color: white;
 }
 
 .nav-links a[href="apply.html"] {
