@@ -1,26 +1,93 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apply</title>
-    <link rel="stylesheet" href="styles.css">
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Apply</title>
+   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <div class="logo">Tech Careers Inc.</div>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="jobs.html">Job Openings</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="apply.html">Apply</a></li>
-            </ul>
-        </nav>
-        
-    </header>
+   <header>
+       <div class="logo">Tech Careers Inc.</div>
+       <nav>
+           <ul class="nav-links">
+               <li><a href="index.html">Home</a></li>
+               <li><a href="jobs.html">Job Openings</a></li>
+               <li><a href="apply.html">Apply</a></li>
+               <li><a href="about.html">About Us</a></li>
+           </ul>
+       </nav>
 
+   </header>
+   <main>
+       <section>    
+         
 
-    
+               <table>
+                   <caption> <h3><strong>Job Application</strong></h3></caption>
+                   <tr>
+                       <th>Field</th>
+                       <th>Format Requirement</th>
+                   </tr>
+           
+                   <tbody>
+                     
+                       <tr><form id="survey" method="post"action="process.php"></form>
+                           <td>Job reference number</td><br>
+                           <td><br><br>
+                               <label for="Job Reference Number"><p>Select your reference number:</p></label>
+                               <p><select name="number" id="number" requried>
+                                   <option value="SE123">SE123</option>
+                                   <option value="CS789">CS789</option>
+                                   
+                                 </select></p>
+                                 <br>  
+                           </td>
+                           
+                        </tr>
+           
+                        <tr><form id="survey" method="post"action="process.php"></form>
+                           <td>First name</td>
+                           <td><label for="First name" First name></label>
+                           <input type="text" name="first name" id="first name" maxlength="20" pattern="[a-zA-Z]+$" required="required"></td>
+                       </tr>
+           
+                       
+           
+                       <tr><form id="survey" method="post"action="process.php"></form>
+                           <td>Last Name</td>
+                           <td><label for="Last name" Last name></label>
+                               <input type="text" name="last name" id="last name" maxlength="20" pattern="[a-zA-Z]+$" required="required"></td>
+                           
+                       </tr>
+       
+                    
+       
+                       <tr><form id="survey" method="post"action="process.php"></form>
+                           <td>Date of birth</td>
+                           <td><label for="DOB" DOB ></label>
+                               <input type="text" name = "dob" maxlength="10" size="10"
+                               placeholder="dd/mm/yyyy"
+                               pattern="\d{1,2}\/\d{1,2}\/\d{4}">
+                               
+                           </td>
+                       </tr>
+                   
+           
+           
+                   </tbody>
+           
+           
+               </table>
+
+           
+   </section>
+
+   </main>
+
+   
+
+   
 </body>
 </html>
