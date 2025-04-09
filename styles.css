@@ -7,6 +7,7 @@
     font-family: Arial, sans-serif;
 }
 
+
 /* Header Styling */
 header {
     background-color: white;
@@ -14,14 +15,13 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 15px 5%;
-    position: sticky;
     top: 0;
     width: 100%;
     z-index: 1000;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-header2 {
+.job-header {
     background-color: #0D1B2A;
     display: flex;
     justify-content: space-between;
@@ -60,13 +60,28 @@ nav {
     font-size: 1.1rem;
     padding: 10px 15px;
     border-radius: 5px;
-    transition: background 0.3s;
+    transition: background 0.3s; 
 }
 
 .nav-links a:hover {
     background: #415A77;
 }
 
+.nav-links a[href="apply.html"] {
+    background-color: #0D1B2A;
+    color: white !important;
+    border-radius: 5px;
+    transition: background 0.3s;
+    width: 200px;
+    padding: 10px 5px; 
+    display: inline-block;
+    min-width: 100px;    
+    text-align: center;
+}
+
+.nav-links a[href="apply.html"]:hover {
+    background-color: #415A77;
+}
 /* Mobile Responsive Navigation */
 @media (max-width: 768px) {
     header {
