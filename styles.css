@@ -108,7 +108,7 @@ body {
 }
 
 footer {
-    background: #004466;
+    background: #0D1B2A;
     color: white;
     text-align: center;
     padding: 20px 0;
@@ -264,4 +264,50 @@ input[type="radio"]{
     
 }
 
+textarea {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    transition: border 0.3s, box-shadow 0.3s;
+  }
+  
+  textarea:focus {
+    border-color: #4a90e2;
+    box-shadow: 0 0 8px rgba(74, 144, 226, 0.5);
+    outline: none;
+  }
+
+  hr{
+    border: none;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #004466, transparent);
+    margin: 2rem 0;
+
+  }
+
 /*Home Page*/
+
+/* Hero Section */
+.hero-image {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+.hero-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 3em;
+    font-weight: bold;
+    text-shadow: 2px 2px 8px #000;
+}
+
