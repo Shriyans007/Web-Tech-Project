@@ -279,5 +279,13 @@ textarea {
     outline: none;
   }
 
+  hr{
+    border: none;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #004466, transparent);
+    margin: 2rem 0;
+
+  }
+
 /*Home Page*/
 
