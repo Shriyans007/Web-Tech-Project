@@ -1,26 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apply</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <header>
-        <div class="logo">Tech Careers Inc.</div>
+        <div class="logo">Cyber Nova Inc.</div>
         <nav>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="jobs.html">Job Openings</a></li>
-                <li><a href="apply.html">Apply</a></li>
                 <li><a href="about.html">About Us</a></li>
+                <li><a href="apply.html">Apply</a></li>
             </ul>
         </nav>
-        
+
+    </header>
+    <header class="job-header">
+        <h1>Job Application</h1>
+
+
     </header>
 
 
-    
+    <section class="form-container">
+        <form id="application-form" method="post" action="process.php">
+            <h2>Job Application
+                <hr>
+            </h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Field</th>
+                        <th>Input</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Job reference number</td>
+                        <td>
+                            <select name="number" id="number" required>
+                                <option value="" disabled selected>Select your reference number</option>
+                                <option value="SE123">SE123</option>
+                                <option value="CS789">CS789</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>First name</td>
+                        <td><input type="text" name="first-name" id="first-name" maxlength="20" pattern="[a-zA-Z]+$"
+                                required></td>
+                    </tr>
+                    <tr>
+                        <td>Last name</td>
+                        <td><input type="text" name="last-name" id="last-name" maxlength="20" pattern="[a-zA-Z]+$"
+                                required></td>
+                    </tr>
+                    <tr>
+                        <td>Date of birth</td>
+                        <td><input type="text" name="dob" id="dob" maxlength="10" placeholder="dd/mm/yyyy"
+                                pattern="\d{1,2}/\d{1,2}/\d{4}" required></td>
+                    </tr>
+                    <tr>
+                        <td>Gender</td>
+                        <td>
+                            <fieldset>
+                                <legend>Please select your gender</legend>
+                                <label><input type="radio" name="gender" value="m"> Male</label>
+                                <label><input type="radio" name="gender" value="f"> Female</label>
+                                <label><input type="radio" name="gender" value="o"> Other</label>
+                                <label><input type="radio" name="gender" value="p"> Prefer not to say</label>
+                            </fieldset>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Street Address</td>
+                        <td><input type="text" name="address" id="address" maxlength="40" required></td>
+                    </tr>
+                    <tr>
+                        <td>Suburb/Town</td>
+                        <td><input type="text" name="suburb" id="suburb" maxlength="40" required></td>
+                    </tr>
+                    <tr>
+                        <td>State</td>
+                        <td>
+                            <select name="state" id="state" required>
+                                <option value="" disabled selected>Select your state</option>
+                                <option value="VIC">VIC</option>
+                                <option value="NSW">NSW</option>
+                                <option value="QLD">QLD</option>
+                                <option value="NT">NT</option>
+                                <option value="SA">SA</option>
+                                <option value="TAS">TAS</option>
+                                <option value="ACT">ACT</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Postcode</td>
+                        <td><input type="text" name="postcode" id="postcode" pattern="\d{4}" required></td>
+                    </tr>
+                    <tr>
+                        <td>Email address</td>
+                        <td><input type="email" name="email" id="email" placeholder="name@example.com" required></td>
+                    </tr>
+                    <tr>
+                        <td>Phone Number</td>
+                        <td><input type="tel" name="phone" placeholder="(##) #### ####" pattern="\(\d{2}\) +\d{4}-\d{4}" />
+                        </label>    
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+            </table>
+        </form>
+    </section>
+
+
+
+
+
 </body>
+<footer>
+    <p>&copy; 2025 Cyber Nova Inc.</p>
+</footer>
+
 </html>
