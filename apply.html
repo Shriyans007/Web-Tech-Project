@@ -127,28 +127,35 @@
 
                         <td>
                             <label><input type="checkbox" name="technical skills[]" value="NWS" />Network
-                                Security</label><br>
+                                Security</label>
                             <label><input type="checkbox" name="technical skills[]" value="EPS" />Endpoint
                                 Security</label><br>
                             <label><input type="checkbox" name="technical skills[]" value="APS" />Application
-                                Security</label><br>
+                                Security</label>
                             <label><input type="checkbox" name="technical skills[]" value="ETH" />Ethical
                                 Hacking</label><br>
                             <label><input type="checkbox" name="technical skills[]" value="THH" />Threat Hunting
                             </label>
                             <script>
                                 function validateCheckboxes() {
-                                  const checkboxes = document.querySelectorAll('input[name="technical skills"]');
-                                  const isChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
-                                  if (!isChecked) {
-                                    alert("Please select at least one option.");
-                                    return false;
-                                  }
-                                  return true;
+                                    const checkboxes = document.querySelectorAll('input[name="technical skills"]');
+                                    const isChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
+                                    if (!isChecked) {
+                                        alert("Please select at least one option.");
+                                        return false;
+                                    }
+                                    return true;
                                 }
-                                </script>
-                        
+                            </script>
+
                         </td>
+                    </tr>
+
+                    <tr>
+                        <td>Other Skills</td>
+                        <td><textarea style="resize: none;" name="other skills" rows="4" cols="40" .focus()>
+    </textarea></td>
+
                     </tr>
 
                 </tbody>
@@ -162,7 +169,7 @@
 
 </body>
 <footer>
-    <img src="SuperNovaLogo.png" class ="logo">  
+    <img src="/footerlogo.png" alt="Footer Logo" style="height: 150px;">   
     <p>&copy; 2025 Cyber Nova Inc.</p>
 </footer>
 
