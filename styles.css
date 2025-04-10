@@ -34,10 +34,10 @@ header {
 }
 
 .logo {
-    color: black;
-    font-size: 1.5rem;
-    font-weight: bold;
-}
+    background-color: #0D1B2A;
+    padding: 5px;
+    width: 500px;      
+    height: 150px;}
 
 nav {
     flex: 1;
@@ -267,3 +267,5 @@ input[type="radio"]{
     margin-right: 5px;
     
 }
+
+/*Home Page*/
