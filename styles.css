@@ -279,5 +279,35 @@ textarea {
     outline: none;
   }
 
+  hr{
+    border: none;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #004466, transparent);
+    margin: 2rem 0;
+
+  }
+
 /*Home Page*/
+
+/* Hero Section for about page */
+.hero-image {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+.hero-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 3em;
+    font-weight: bold;
+    text-shadow: 2px 2px 8px #000;
+}
 
