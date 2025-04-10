@@ -10,7 +10,7 @@
 
 <body>
     <header>
-        <div class="logo">Cyber Nova Inc.</div>
+        <div class="logo"> Cyber Nova Inc.</div>
         <nav>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
@@ -111,11 +111,41 @@
                     </tr>
                     <tr>
                         <td>Phone Number</td>
-                        <td><input type="tel" name="phone" placeholder="(##) #### ####" pattern="\(\d{2}\) +\d{4}-\d{4}" />
-                        </label>    
+                        <td><input type="tel" name="phone" placeholder="(##) #### ####"
+                                pattern="\(\d{2}\) +\d{4}-\d{4}" />
+                            </label>
 
                         </td>
 
+                    </tr>
+
+                    <tr>
+                        <td>Required Technical List</td>
+
+                        <td>
+                            <label><input type="checkbox" name="technical skills[]" value="NWS" />Network
+                                Security</label><br>
+                            <label><input type="checkbox" name="technical skills[]" value="EPS" />Endpoint
+                                Security</label><br>
+                            <label><input type="checkbox" name="technical skills[]" value="APS" />Application
+                                Security</label><br>
+                            <label><input type="checkbox" name="technical skills[]" value="ETH" />Ethical
+                                Hacking</label><br>
+                            <label><input type="checkbox" name="technical skills[]" value="THH" />Threat Hunting
+                            </label>
+                            <script>
+                                function validateCheckboxes() {
+                                  const checkboxes = document.querySelectorAll('input[name="technical skills"]');
+                                  const isChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
+                                  if (!isChecked) {
+                                    alert("Please select at least one option.");
+                                    return false;
+                                  }
+                                  return true;
+                                }
+                                </script>
+                        
+                        </td>
                     </tr>
 
                 </tbody>
