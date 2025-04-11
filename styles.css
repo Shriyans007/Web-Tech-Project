@@ -133,7 +133,7 @@ section {
 }
 
 h2 {
-    color: #004466;
+    color: white;
 }
 
 h3 {
@@ -314,10 +314,16 @@ textarea {
 /*Home Page*/
 
 .hero {
-    background-color: #1abc9c;
+    background-color: #0D1B2A;
     color: white;
     text-align: center;
     padding: 100px 0;
+  }
+  .hero2 {
+    background-color: #0D1B2A;
+    color: white;
+    padding: 100px 0;
+    height: 800px;
   }
   
   .hero h1 {
@@ -361,6 +367,7 @@ textarea {
     width: 90%;
     margin: 0 auto;
     max-width: 1200px;
+    height: 100px;
   }
 
 
@@ -368,7 +375,7 @@ textarea {
   .card {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
-    width: 40%;
+    width: 70%;
   }
   
   .card:hover {
@@ -385,16 +392,19 @@ textarea {
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 20px;
-    padding: 20px;
+    padding: 40px;
   }
   
   .card {
-    flex-basis: calc(33% - 20px); /* Each card takes up 1/3 of the space */
+    flex-basis: calc(33% - 60px); /* Each card takes up 1/3 of the space */
     background-color: #fff;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s;
+    height: 200px;
+    text-align: center;
+    text-align: middle;
   }
   
   .card:hover {
@@ -414,7 +424,7 @@ textarea {
   }
   
   .card3 {
-    background-color: #ffeb3b; /* Yellow */
+    background-color: #ac9b03; /* Yellow */
   }
   
   .card4 {
