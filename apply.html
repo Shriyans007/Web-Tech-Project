@@ -34,9 +34,9 @@
     <section class="form-container">
         <form id="application-form" method="post" action="process.php">
             <h2>Job Application <br>
-                
-                <hr>
             </h2>
+            <!-- Element hr not allowed as child of element h2 in this context. -->
+            <hr>
             <table>
                 <thead>
                     <tr>
@@ -116,8 +116,7 @@
                     <tr>
                         <td>Phone Number</td>
                         <td><input type="tel" name="phone" placeholder="(##) #### ####"
-                                pattern="\(\d{2}\) +\d{4}-\d{4}" />
-                            </label>
+                                pattern="\(\d{2}\) +\d{4}-\d{4}" >
 
                         </td>
 
@@ -127,15 +126,15 @@
                         <td>Required Technical List</td>
 
                         <td>
-                            <label><input type="checkbox" name="technical skills[]" value="NWS" />Network
+                            <label><input type="checkbox" name="technical skills[]" value="NWS" >Network
                                 Security</label>
-                            <label><input type="checkbox" name="technical skills[]" value="EPS" />Endpoint
+                            <label><input type="checkbox" name="technical skills[]" value="EPS" >Endpoint
                                 Security</label><br>
-                            <label><input type="checkbox" name="technical skills[]" value="APS" />Application
+                            <label><input type="checkbox" name="technical skills[]" value="APS" >Application
                                 Security</label>
-                            <label><input type="checkbox" name="technical skills[]" value="ETH" />Ethical
+                            <label><input type="checkbox" name="technical skills[]" value="ETH" >Ethical
                                 Hacking</label><br>
-                            <label><input type="checkbox" name="technical skills[]" value="THH" />Threat Hunting
+                            <label><input type="checkbox" name="technical skills[]" value="THH" >Threat Hunting
                             </label>
                             <script>
                                 function validateCheckboxes() {
@@ -154,7 +153,7 @@
 
                     <tr>
                         <td>Other Skills</td>
-                        <td><textarea style="resize: none;" name="other skills" rows="4" cols="40" .focus()>
+                        <td><textarea style="resize: none;" name="other skills" rows="4" cols="40">
     </textarea></td>
 
                     </tr>
@@ -165,15 +164,15 @@
     </section>
 
 
+    <footer>
+        <img src="/footerlogo.png" alt="Footer Logo" style="height: 150px;">   
+        <p>&copy; 2025 Cyber Nova Inc.</p>
+        <p>Jira Board: <a href="https://student-team-p6pajg6n.atlassian.net/jira/software/projects/WTP/summary" target="_blank">Click here</a></p>
+        
+    </footer>
 
 
 
 </body>
-<footer>
-    <img src="/footerlogo.png" alt="Footer Logo" style="height: 150px;">   
-    <p>&copy; 2025 Cyber Nova Inc.</p>
-    <p>Jira Board: <a href="https://student-team-p6pajg6n.atlassian.net/jira/software/projects/WTP/summary" target="_blank">Click here</a></p>
-    
-</footer>
 
 </html>
