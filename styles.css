@@ -15,8 +15,12 @@ body {
   color: #333;
 }
 
-h1, h2 {
+h1 {
   color: white;
+}
+
+h2 {
+  color: #006699;
 }
 
 h3 {
