@@ -93,7 +93,7 @@
                     <tr>
                         <td>State</td>
                         <td>
-                            <select name="state" id="state" required>
+                            <select name="state" id="state" required="required">
                                 <option value="" disabled selected>Select your state</option>
                                 <option value="VIC">VIC</option>
                                 <option value="NSW">NSW</option>
@@ -137,17 +137,6 @@
                                 Hacking</label><br>
                             <label><input type="checkbox" name="technical skills[]" value="THH" />Threat Hunting
                             </label>
-                            <script>
-                                function validateCheckboxes() {
-                                    const checkboxes = document.querySelectorAll('input[name="technical skills"]');
-                                    const isChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
-                                    if (!isChecked) {
-                                        alert("Please select at least one option.");
-                                        return false;
-                                    }
-                                    return true;
-                                }
-                            </script>
 
                         </td>
                     </tr>
@@ -163,6 +152,9 @@
             </table>
         </form>
     </section>
+
+    <label type="Submit" value="Submit Application" href></label>
+    <label type="Reset" value="Reset Application"></label>
 
 
 
