@@ -304,11 +304,21 @@ textarea:focus {
   overflow: hidden;
 }
 
+.hero-image figcaption{
+  float: right;
+  font-style: italic;
+  color: gray;
+}
+
+
+
 .hero-image img {
   width: 100%;
   height: auto;
   display: block;
+  border: 5px solid black;
 }
+
 
 .hero-text {
   position: absolute;
@@ -562,3 +572,4 @@ textarea:focus {
       margin: 5px 0;
   }
 }
+
