@@ -401,6 +401,14 @@ button[type="submit"]{
   text-align: center;
 }
 
+.why-us li{
+  list-style-position: inside;
+}
+
+.industries li{
+  list-style-position: inside;
+}
+
 .service-item {
   margin-bottom: 30px;
 }
@@ -427,6 +435,14 @@ button[type="submit"]{
 .text-container {
   margin-left: 20px;
   text-align: center;
+}
+
+.text-container{
+  margin-bottom: 5px;
+}
+
+.text-container h2{
+  color: #006699;
 }
 
 /* ===== CARD STYLES ===== */
