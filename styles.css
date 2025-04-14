@@ -427,18 +427,18 @@ textarea:focus {
 .card1 { background-color: #ff6347; }
 .card2 { background-color: #3b9f9f; }
 .card3 { background-color: #ac9b03; }
-.card4 { background-color: #9c27b0; }
+.card4 { background-color: #b668c4; }
 .card5 { background-color: #2196f3; }
 .card6 { background-color: #ff9800; }
 
 .card h4 {
   font-size: 18px;
-  color: #fff;
+  color: #000;
   font-weight: bold;
 }
 
 .card p {
-  color: #fff;
+  color: #000;
   font-size: 14px;
 }
 
