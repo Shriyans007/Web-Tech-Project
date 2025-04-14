@@ -255,7 +255,28 @@ select {
   border-radius: 6px;
   border: 1px solid #ccc;
   box-sizing: border-box;
+
 }
+input[type="text"]:focus
+{
+    border-color: #4a90e2;
+    box-shadow: 0 0 8px rgba(74, 144, 226, 0.5);
+    outline: none;
+  }
+
+input[type="email"]:focus{
+    border-color: #4a90e2;
+    box-shadow: 0 0 8px rgba(74, 144, 226, 0.5);
+    outline: none;
+}
+
+input[type="tel"]:focus
+{
+    border-color: #4a90e2;
+    box-shadow: 0 0 8px rgba(74, 144, 226, 0.5);
+    outline: none;
+}
+
 
 fieldset {
   border: none;
@@ -292,8 +313,12 @@ textarea:focus {
     padding: 10px;border-radius: 6px;
     border: 1px solid #ccc;
     box-sizing: border-box;
+}
 
-
+select:focus{
+    border-color: #4a90e2;
+    box-shadow: 0 0 8px rgba(74, 144, 226, 0.5);
+    outline: none;
 }
 
 /* ===== HERO SECTIONS ===== */
