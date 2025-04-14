@@ -247,6 +247,8 @@ table.team-table li {
 /* ===== FORM ELEMENTS ===== */
 input[type="text"],
 input[type="email"],
+input[type="tel"],
+
 select {
   width: 100%;
   padding: 10px;
@@ -269,6 +271,7 @@ input[type="radio"] {
   margin-right: 5px;
 }
 
+
 textarea {
   width: 100%;
   padding: 12px;
@@ -282,6 +285,15 @@ textarea:focus {
   border-color: #4a90e2;
   box-shadow: 0 0 8px rgba(74, 144, 226, 0.5);
   outline: none;
+}
+
+.dropdown-container{
+    width: 100%;
+    padding: 10px;border-radius: 6px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+
+
 }
 
 /* ===== HERO SECTIONS ===== */
