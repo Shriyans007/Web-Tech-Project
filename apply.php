@@ -18,7 +18,7 @@
 
 
     <section class="form-container">
-        <form id="application-form" method="post" action=" https://mercury.swin.edu.au/it000000/formtest.php">
+        <form id="application-form" method="post" action="process_eoi.php">
             <h3>Job Application <br>
             </h3>
             <!-- Element hr not allowed as child of element h2 in this context. -->
@@ -122,15 +122,15 @@
                         <td>Required Technical List</td>
 
                         <td>
-                            <label><input type="checkbox" name="technical skills[]" value="NWS" required>Network
+                            <label><input type="checkbox" name="technical_skills[]" value="NWS" required>Network
                                 Security</label>
-                            <label><input type="checkbox" name="technical skills[]" value="EPS">Endpoint
+                            <label><input type="checkbox" name="technical_skills[]" value="EPS">Endpoint
                                 Security</label><br>
-                            <label><input type="checkbox" name="technical skills[]" value="APS">Application
+                            <label><input type="checkbox" name="technical_skills[]" value="APS">Application
                                 Security</label>
-                            <label><input type="checkbox" name="technical skills[]" value="ETH">Ethical
+                            <label><input type="checkbox" name="technical_skills[]" value="ETH">Ethical
                                 Hacking</label><br>
-                            <label><input type="checkbox" name="technical skills[]" value="THH">Threat Hunting
+                            <label><input type="checkbox" name="technical_skills[]" value="THH">Threat Hunting
                             </label>
 
                         </td>
@@ -139,7 +139,7 @@
                     <tr>
                         <td>Other Skills</td>
                         <td><label><em>Please enter any other related skills:</em><textarea style="resize: none;"
-                                    name="other skills" rows="4" cols="40">
+                                    name="other_skills" rows="4" cols="40">
                         </textarea></label></td>
 
                     </tr>
