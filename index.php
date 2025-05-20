@@ -8,24 +8,7 @@
 </head>
 
 <body>
-    <header>
-        <div class="logo">
-            <a href="index.html">
-                <img src="SuperNovaLogo.png" alt="Cyber Nova Inc. Logo" style="height: 100px;">
-            </a>
-        </div>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="jobs.html">Job Openings</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="apply.html">Apply</a></li>
-            </ul>
-        </nav>
-    </header>
-
-
-
+    <?php include 'header.inc'; ?>
     <div class="hero">
         <div class="container">
           <h1>Homepage</h1>
@@ -138,11 +121,6 @@
         </div>
       
     
-      <footer>
-        <img src="footerlogo.png" alt="Footer Logo" style="height: 150px;">   
-        <p>&copy; 2025 Cyber Nova Inc.</p>
-        <p>Jira Board: <a href="https://student-team-p6pajg6n.atlassian.net/jira/software/projects/WTP/summary" target="_blank">Click here</a></p>
-        <p>GitHub: <a href="https://github.com/Shriyans007/Web-Tech-Project.git" target="_blank">Click here</a></p>
-    </footer>
+      <?php include 'footer.inc'; ?>
     </body>
     </html>
