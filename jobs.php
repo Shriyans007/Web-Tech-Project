@@ -1,103 +1,76 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+// jobs.php
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Job Opportunities</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
+session_start();
+require_once 'settings.php';
 
-<body>
-    <?php include 'header.inc'; ?>
-    
+// 1. Connect to MySQL
+$conn = mysqli_connect($host, $username, $password, $database);
+if (!$conn) {
+    die("Database connection failed: " . mysqli_connect_error());
+}
 
-    <header class="job-header">
-        <h1>Job Opportunities</h1>
-    </header>
+// 2. Fetch all jobs
+$sql    = "SELECT * FROM jobs ORDER BY id";
+$result = mysqli_query($conn, $sql);
+if (!$result) {
+    die("Query error: " . mysqli_error($conn));
+}
 
-    <main>
-        <section>
-            <h2 id="soft-eng">Software Engineer</h2>
-            <p><strong>Reference Number:</strong> SE123</p>
-            <p><strong>Salary Range:</strong> $80,000 - $120,000 per annum</p>
-            <p><strong>Reports To:</strong> Lead Software Developer</p>
+// 3. Pull in your site header/nav
+include 'header.inc';
+?>
 
-            <h3>Job Description</h3>
-            <p>We are looking for a skilled Software Engineer to develop high-quality applications.</p>
+<header class="job-header">
+    <h1>Job Opportunities</h1>
+</header>
 
-            <h3>Key Responsibilities</h3>
-            <ul>
-                <li>Develop, test, and maintain web applications</li>
-                <li>Collaborate with cross-functional teams</li>
-                <li>Ensure software security and performance optimization</li>
-            </ul>
+<main>
+<?php while ($job = mysqli_fetch_assoc($result)): ?>
+    <?php 
+      // create a clean id from the title
+      $anchor = strtolower(preg_replace('/[^\w]+/', '_', trim($job['title'])));
+    ?>
+    <section id="<?php echo htmlspecialchars($anchor); ?>">
+        <h2><?php echo htmlspecialchars($job['title']); ?></h2>
+        <p><strong>Reference Number:</strong> <?php echo htmlspecialchars($job['ref_number']); ?></p>
+        <p><strong>Salary Range:</strong> <?php echo htmlspecialchars($job['salary_range']); ?></p>
+        <p><strong>Reports To:</strong> <?php echo htmlspecialchars($job['reports_to']); ?></p>
 
-            <h3>Qualifications and Skills</h3>
-            <h4>Essential</h4>
-            <ul>
-                <li>Bachelor’s degree in Computer Science or related field</li>
-                <li>3+ years of experience in software development</li>
-                <li>Proficiency in JavaScript, Python, or Java</li>
-            </ul>
+        <h3>Job Description</h3>
+        <p><?php echo nl2br(htmlspecialchars($job['description'])); ?></p>
+
+        <h3>Key Responsibilities</h3>
+        <?php echo $job['responsibilities']; /* stored as <ul> or <ol> HTML */ ?>
+
+        <h3>Qualifications and Skills</h3>
+        <h4>Essential</h4>
+        <?php echo $job['qualifications_essential']; ?>
+
+        <?php if (!empty($job['qualifications_preferable'])): ?>
             <h4>Preferable</h4>
-            <ul>
-                <li>Experience with cloud computing</li>
-                <li>Knowledge of DevOps practices</li>
-            </ul>
-           
-            <!-- The element button must not appear as a descendant of the a element. -->
-            <a href="apply.html" class="button" style="vertical-align:middle"><span>Apply now</span></a>
+            <?php echo $job['qualifications_preferable']; ?>
+        <?php endif; ?>
 
-            <br>
-        </section>
+        <!-- pass the job ref to your apply form -->
+        <a href="apply.php?ref=<?php echo urlencode($job['ref_number']); ?>"
+           class="button" style="vertical-align:middle">
+            <span>Apply now</span>
+        </a>
+    </section>
+<?php endwhile; ?>
+</main>
 
-        <section>
-            <h2 id="cyber_sec">Cybersecurity Specialist</h2>
-            <p><strong>Reference Number:</strong> CS789</p>
-            <p><strong>Salary Range:</strong> $95,000 - $140,000 per annum</p>
-            <p><strong>Reports To:</strong> Chief Security Officer</p>
+<aside>
+    <h3>Why Work With Us?</h3>
+    <p>We offer competitive salaries, remote work options, and professional development programs.</p>
+</aside>
 
-            <h3>Job Description</h3>
-            <p>We are looking for a Cybersecurity Specialist to protect our IT infrastructure and sensitive data from
-                cyber threats.</p>
+<?php
+// clean up
+mysqli_free_result($result);
+mysqli_close($conn);
 
-            <h3>Key Responsibilities</h3>
-            <ol>
-                <li>Develop and implement security policies and procedures</li>
-                <li>Monitor networks for security breaches</li>
-                <li>Conduct security audits and risk assessments</li>
-                <li>Respond to cybersecurity incidents and provide solutions</li>
-                <li>Ensure compliance with security regulations</li>
-            </ol>
-
-            <h3>Qualifications and Skills</h3>
-            <h4>Essential</h4>
-            <ul>
-                <li>Bachelor’s degree in Cybersecurity, Computer Science, or related field</li>
-                <li>3+ years of experience in cybersecurity roles</li>
-                <li>Expertise in firewall management, intrusion detection, and encryption technologies</li>
-            </ul>
-            <h4>Preferable</h4>
-            <ul>
-                <li>Certifications such as CISSP, CISM, or CEH</li>
-                <li>Experience with cloud security</li>
-            </ul>
-
-            <!-- The element button must not appear as a descendant of the a element. -->
-            <a href="apply.html" class="button" style="vertical-align:middle"><span>Apply now</span></a>
-
-        </section>
-
-
-    </main>
-
-    <aside>
-        <h3>Why Work With Us?</h3>
-        <p>We offer competitive salaries, remote work options, and professional development programs.</p>
-    </aside>
-
-    <?php include 'footer.inc'; ?>
-</body>
-
-</html>
+// pull in your footer
+include 'footer.inc';
+?>
