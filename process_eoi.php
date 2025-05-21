@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once("settings.php");
-
+include 'header.inc';
 $conn = mysqli_connect($host,$username,$password,$database);
 
 if (!$conn){

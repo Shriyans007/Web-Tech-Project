@@ -15,10 +15,12 @@ body {
   color: #333;
 }
 
-h1, h2 {
+h1 {
   color: white;
 }
-
+h2 {
+  color: black;
+}
 h3 {
   color: #006699;
 }
@@ -640,7 +642,7 @@ button[type="submit"]{
 }
 
 /* ===== MEDIA QUERIES ===== */
-@media (max-width: 768px) {
+@media (max-width: 100%) {
   header {
       flex-direction: column;
       align-items: center;
@@ -660,3 +662,151 @@ a {
     color: white;
     
 }
+
+
+/*Manage Php */
+/* --- SECTION WRAPPER (fluid under header) --- */
+.section-container {
+  background-color: #f3f4f6;
+  padding: 2rem 0;
+}
+
+.section-inner {
+  width: 90%;            /* fluid width */
+  max-width: 100rem;      /* ~1200px */
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Section title */
+.section-inner h2 {
+  font-size: 1.75rem;    /* 28px */
+  line-height: 1.2;
+  color: #1f2937;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+
+.manage-container {
+  display: grid;
+  grid-template-columns: minmax(0, 18.75rem) 1fr; /* sidebar 300px, content flex */
+  gap: 1.5rem;                                  /* 24px gap */
+}
+
+
+@media (max-width: 48rem) {   /* 48rem = 768px */
+  .manage-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- SIDEBAR PANEL --- */
+.manage-sidebar {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  padding: 1.5rem;       /* 24px */
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;             /* 16px between forms */
+}
+
+/* Strip per-form boxes—forms share the sidebar background */
+.manage-form {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+}
+
+.manage-form label {
+  display: block;
+  margin-bottom: 0.5rem; /* 8px */
+  font-size: 0.9375rem;  /* 15px */
+  color: #374151;
+}
+
+.manage-form input,
+.manage-form select {
+  width: 100%;
+  padding: 0.5rem;        /* 8px */
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;/* 6px */
+  font-size: 0.9375rem;   /* 15px */
+  margin-top: 0.25rem;    /* 4px */
+  color: #111827;
+}
+
+/* Buttons fill width */
+.manage-form button {
+  width: 100%;
+  padding: 0.75rem;       /* 12px */
+  margin-top: 0.5rem;     /* 8px */
+  background-color: #2563eb;
+  color: #ffffff;
+  border: none;
+  border-radius: 0.375rem;
+  font-size: 1rem;        /* 16px */
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.manage-form button:hover {
+  background-color: #1e40af;
+}
+
+/* --- CONTENT PANEL --- */
+.manage-content {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  padding: 2rem;
+
+}
+
+
+/* --- RESULTS TABLE --- */
+.eoi-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  
+}
+
+.eoi-table th,
+.eoi-table td {
+  padding: 0.75rem 1rem;  /* 12px 16px */
+  text-align: left;
+  white-space: normal;    /* allow wrapping */
+  word-break: break-word;
+  font-size: 11px;   /* 15px */
+  color: #374151;
+}
+
+.eoi-table th {
+  background-color: #f3f4f6;
+  font-weight: 500;
+}
+
+.eoi-table tr + tr td {
+  border-top: 1px solid #e5e7eb;
+}
+
+/* --- NO-RESULTS MESSAGE --- */
+.no-results {
+  font-style: italic;
+  color: #6b7280;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+
+

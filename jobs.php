@@ -2,20 +2,19 @@
 session_start();
 require_once 'settings.php';
 
-// 1. Connect to MySQL
 $conn = mysqli_connect($host, $username, $password, $database);
 if (!$conn) {
     die("Database connection failed: " . mysqli_connect_error());
 }
 
-// 2. Fetch all jobs
+
 $sql    = "SELECT * FROM jobs ORDER BY id";
 $result = mysqli_query($conn, $sql);
 if (!$result) {
     die("Query error: " . mysqli_error($conn));
 }
 
-// 3. Pull in your shared header (with DOCTYPE, <head>, nav, etc.)
+
 include 'header.inc';
 ?>
 
