@@ -23,9 +23,9 @@ include 'header.inc';
 
 <section class="section-container">
   <div class="section-inner">
- 
-    <h2>Manage Expressions of Interest</h2>
-
+  <header class="job-header">
+    <h1>Manage Expressions of Interest</h1>
+</header>
     <div class="manage-container">
 
       <div class="manage-sidebar">
