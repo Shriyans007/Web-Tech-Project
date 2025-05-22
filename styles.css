@@ -659,7 +659,7 @@ button[type="submit"]{
 }
 
 a {
-    color: white;
+    color: black;
     
 }
 
@@ -809,4 +809,11 @@ a {
 }
 
 
+main.form-container p > a.LoginStyle {
+  color: #000 !important;          /* force black text */
+  text-decoration: underline;
+}
 
+main.form-container p > a.LoginStyle:hover {
+  color: #333 !important;
+}
