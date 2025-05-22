@@ -7,7 +7,6 @@ if (!$conn) {
     die("Database connection failed: " . mysqli_connect_error());
 }
 
-
 $sql    = "SELECT * FROM jobs ORDER BY id";
 $result = mysqli_query($conn, $sql);
 if (!$result) {
@@ -22,7 +21,9 @@ include 'header.inc';
   <h1>Job Opportunities</h1>
 </header>
 
+  
 <main>
+  
   <?php while ($job = mysqli_fetch_assoc($result)): ?>
     <?php 
       $anchor = strtolower(preg_replace('/[^\w]+/', '_', trim($job['title'])));
