@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 22, 2025 at 04:43 AM
+-- Generation Time: May 22, 2025 at 03:03 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -78,6 +78,20 @@ INSERT INTO `jobs` (`id`, `title`, `ref_number`, `salary_range`, `reports_to`, `
 (1, 'Software Engineer', 'SE123', '$80,000 - $120,000 per annum', 'Lead Software Developer', 'We are looking for a skilled Software Engineer to develop high-quality applications.', '<ul>\r\n     <li>Develop, test, and maintain web applications</li>\r\n     <li>Collaborate with cross-functional teams</li>\r\n     <li>Ensure software security and performance optimization</li>\r\n   </ul>', '<ul>\r\n     <li>Bachelor’s degree in Computer Science or related field</li>\r\n     <li>3+ years of experience in software development</li>\r\n     <li>Proficiency in JavaScript, Python, or Java</li>\r\n   </ul>', '<ul>\r\n     <li>Experience with cloud computing</li>\r\n     <li>Knowledge of DevOps practices</li>\r\n   </ul>'),
 (2, 'Cybersecurity Specialist', 'CS789', '$95,000 - $140,000 per annum', 'Chief Security Officer', 'We are looking for a Cybersecurity Specialist to protect our IT infrastructure and sensitive data from cyber threats.', '<ol>\r\n     <li>Develop and implement security policies and procedures</li>\r\n     <li>Monitor networks for security breaches</li>\r\n     <li>Conduct security audits and risk assessments</li>\r\n     <li>Respond to cybersecurity incidents and provide solutions</li>\r\n     <li>Ensure compliance with security regulations</li>\r\n   </ol>', '<ul>\r\n     <li>Bachelor’s degree in Cybersecurity, Computer Science, or related field</li>\r\n     <li>3+ years of experience in cybersecurity roles</li>\r\n     <li>Expertise in firewall management, intrusion detection, and encryption technologies</li>\r\n   </ul>', '<ul>\r\n     <li>Certifications such as CISSP, CISM, or CEH</li>\r\n     <li>Experience with cloud security</li>\r\n   </ul>');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `created_at` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 --
 -- Indexes for dumped tables
 --
@@ -95,6 +109,14 @@ ALTER TABLE `jobs`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `username` (`username`),
+  ADD UNIQUE KEY `email` (`email`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -109,6 +131,12 @@ ALTER TABLE `eoi`
 --
 ALTER TABLE `jobs`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
