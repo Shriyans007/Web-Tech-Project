@@ -29,6 +29,13 @@
                 matters most in an increasingly connected world.</p>
         </section>
 
+        <section>
+            <ul>
+                <li><h3>Class: </h3>Thursday 12:30 Nick</li>
+                <li><h3>Group: </h3>G04</li>
+            </ul>
+        </section>
+
         <section class="team">
             <h3>Meet the Team (hover over our names to find out more about us)</h3>
             <p>We are a diverse group of professionals united by a common goal: to make the digital world a safer place.
@@ -43,10 +50,9 @@
                         <div class="team-container">
                             <h3>Shriyans Simhadri</h3>
                             <p class="team-title">Web Developer & Designer</p>
-                            <p><strong>Student ID: </strong>105914805</p>
+                            <p><strong>Student ID: </strong><span style="float: right; text-align: right; width: 100px; display: inline-block;">105914805</span></p>
                             <p><strong>Gender: </strong>M</p>
                             <p><strong>Age: </strong>18</p>
-
                             <dl>
                                 <dt><strong>Contributions</strong></dt>
                                 <dd>
@@ -54,6 +60,7 @@
                                         <li>Designed website layout</li>
                                         <li>Implemented styling</li>
                                         <li>Created interfaces</li>
+                                        <li>Login and register pages</li>
                                     </ul>
                                 </dd>
                             </dl>
@@ -87,7 +94,7 @@
                         <div class="team-container">
                             <h3>Mahir Shah</h3>
                             <p class="team-title">Project Manager</p>
-                            <p><strong>Student ID: </strong>105921410</p>
+                            <p><strong>Student ID: </strong><span style="float: right; text-align: right; width: 100px; display: inline-block;">105921410</span></p>
                             <p><strong>Gender: </strong>M</p>
                             <p><strong>Age: </strong>18</p>
 
@@ -98,6 +105,7 @@
                                         <li>Coordinated meetings</li>
                                         <li>Delegated tasks</li>
                                         <li>Monitored progress</li>
+                                        <li>Manage Page</li>
                                     </ul>
                                 </dd>
                             </dl>
@@ -131,7 +139,7 @@
                         <div class="team-container">
                             <h3>Fletcher Davis</h3>
                             <p class="team-title">Backend Developer</p>
-                            <p><strong>Student ID: </strong>105911385</p>
+                            <p><strong>Student ID: </strong><span style="float: right; text-align: right; width: 100px; display: inline-block;">105911385</span></p>
                             <p><strong>Gender: </strong>M</p>
                             <p><strong>Age: </strong>18</p>
 
@@ -175,7 +183,8 @@
                         <div class="team-container">
                             <h3>Sakada Seu</h3>
                             <p class="team-title">Content Specialist</p>
-                            <p><strong>Student ID: </strong>105218002</p>
+                            <p><strong>Student ID: </strong><span style="float: right; text-align: right; width: 100px; display: inline-block;">105218002</span></p>
+
                             <p><strong>Gender: </strong>M</p>
                             <p><strong>Age: </strong>18</p>
 
@@ -186,6 +195,7 @@
                                         <li>Wrote content</li>
                                         <li>Ensured consistency</li>
                                         <li>Tested accessibility</li>
+                                        <li>Process_EOI Page</li>
                                     </ul>
                                 </dd>
                             </dl>
@@ -235,7 +245,7 @@
                     <tr>
                         <td>Shriyans Simhadri</td>
                         <td>Web Developer & Designer</td>
-                        <td>105914805</td>
+                        <td style="text-align: right;">105914805</td>
                         <td>M</td>
                         <td>18</td>
                         <td>
@@ -268,7 +278,7 @@
                     <tr>
                         <td>Mahir Shah</td>
                         <td>Project Manager</td>
-                        <td>105921410</td>
+                        <td style="text-align: right;">105921410</td>
                         <td>M</td>
                         <td>18</td>
                         <td>
@@ -301,7 +311,7 @@
                     <tr>
                         <td>Fletcher Davis</td>
                         <td>Backend Developer</td>
-                        <td>105911385</td>
+                        <td style="text-align: right;">105911385</td>
                         <td>M</td>
                         <td>18</td>
                         <td>
@@ -334,7 +344,7 @@
                     <tr>
                         <td>Sakada Seu</td>
                         <td>Content Specialist</td>
-                        <td>105218002</td>
+                        <td style="text-align: right;">105218002</td>
                         <td>M</td>
                         <td>18</td>
                         <td>
