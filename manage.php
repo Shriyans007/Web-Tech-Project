@@ -1,19 +1,21 @@
 <?php
+#start the session
 session_start();
 require_once("settings.php");
 
-
+#Connect to database
 $conn = mysqli_connect($host, $username, $password, $database);
 if (!$conn) {
     die("Database connect failed: " . mysqli_connect_error());
 }
 
 
-
+#cleans up user input and removes special characters to avoid sql injection
 function clean($s) {
     return mysqli_real_escape_string($GLOBALS['conn'], trim($s));
 }
 
+#retrives the form summited by the user and sets to empty string if there is nothing
 $action = $_POST['action'] ?? '';
 
 
@@ -23,17 +25,17 @@ include 'header.inc';
 
 <section class="section-container">
   <div class="section-inner">
-  <header class="job-header">
-    <h1>Manage Expressions of Interest</h1>
-</header>
-    <div class="manage-container">
+ 
+    <h2>Manage Expressions of Interest</h2>
 
+    <div class="manage-container">
+<!--Lists all the EOI's-->
       <div class="manage-sidebar">
         <form class="manage-form" method="post" novalidate>
           <input type="hidden" name="action" value="list_all">
           <button type="submit">List All EOIs</button>
         </form>
-
+<!--Filter EOI by Job refrence-->
         <form class="manage-form" method="post" novalidate>
           <input type="hidden" name="action" value="filter_job">
           <label>Job Reference
@@ -41,7 +43,7 @@ include 'header.inc';
           </label>
           <button type="submit">Filter by Job</button>
         </form>
-
+<!--Filter EOI by Applicant name-->
         <form class="manage-form" method="post" novalidate>
           <input type="hidden" name="action" value="filter_applicant">
           <label>First Name
@@ -52,7 +54,7 @@ include 'header.inc';
           </label>
           <button type="submit">Filter by Applicant</button>
         </form>
-
+<!--Delete EOI by job refrence-->
         <form class="manage-form" method="post" novalidate
               onsubmit="return confirm('Delete all EOIs for this job? This cannot be undone.');">
           <input type="hidden" name="action" value="delete_job">
@@ -61,7 +63,7 @@ include 'header.inc';
           </label>
           <button type="submit">Delete EOIs</button>
         </form>
-
+<!--Change EOI status-->
         <form class="manage-form" method="post" novalidate>
           <input type="hidden" name="action" value="change_status">
           <label>EOI Number
@@ -83,12 +85,15 @@ include 'header.inc';
         <div class="table-wrapper">
           <?php
           if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            #Switch used determine the type of form action was taken
             switch ($action) {
               case 'list_all':
+                #lists all EOI's
                 $sql = "SELECT * FROM eoi ORDER BY EoiNumber";
                 break;
 
               case 'filter_job':
+                #Filters EOI for a specific job
                 $jr  = clean($_POST['job_ref'] ?? '');
                 $sql = "SELECT * FROM eoi
                         WHERE Job_Reference_number='$jr'
@@ -96,6 +101,7 @@ include 'header.inc';
                 break;
 
               case 'filter_applicant':
+                #Filter EOI's by first/last name or both if neccessary
                 $fn   = clean($_POST['first_name'] ?? '');
                 $ln   = clean($_POST['last_name']  ?? '');
                 $conds = [];
@@ -111,6 +117,7 @@ include 'header.inc';
                 break;
 
               case 'delete_job':
+                #Delete EOI's for a specific job and prints how many rows were removed
                 $del_ref = clean($_POST['delete_job_ref'] ?? '');
                 $res     = mysqli_query($conn,
                             "DELETE FROM eoi
@@ -120,6 +127,7 @@ include 'header.inc';
                 break;
 
               case 'change_status':
+                #Updates the status of one EOI entry by eoi number
                 $num = (int)($_POST['eoi_number'] ?? 0);
                 $st  = clean($_POST['new_status'] ?? '');
                 $ok  = mysqli_query($conn,
@@ -132,7 +140,8 @@ include 'header.inc';
                 break;
             }
 
-
+            #Display EOI results in a table
+            # 
             if (in_array($action,
                  ['list_all','filter_job','filter_applicant'], true)) {
               $result = mysqli_query($conn, $sql);
@@ -149,7 +158,7 @@ include 'header.inc';
                 }
                 echo '</tr></thead><tbody>';
                 mysqli_data_seek($result, 0);
-                while ($row = mysqli_fetch_assoc($result)) {
+                while ($row = mysqli_fetch_ass  oc($result)) {
                   echo '<tr>';
                   foreach ($row as $cell) {
                     echo '<td>' . htmlspecialchars($cell) . '</td>';
