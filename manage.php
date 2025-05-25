@@ -141,7 +141,6 @@ include 'header.inc';
             }
 
             #Display EOI results in a table
-            # 
             if (in_array($action,
                  ['list_all','filter_job','filter_applicant'], true)) {
               $result = mysqli_query($conn, $sql);
