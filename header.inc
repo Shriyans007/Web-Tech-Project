@@ -1,3 +1,4 @@
+<!-- header.inc -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +8,7 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header>
+  <header class="site-header">
     <div class="logo">
       <a href="index.php">
         <img src="SuperNovaLogo.png" alt="Cyber Nova Inc. Logo" style="height: 100px;">
@@ -19,6 +20,13 @@
         <li><a href="jobs.php">Job Openings</a></li>
         <li><a href="about.php">About Us</a></li>
         <li><a href="apply.php">Apply</a></li>
+        <!-- USER ICON / LOGIN LINK -->
+        <li>
+          <a href="login.php" title="Login or Register" class="user-icon-link">
+            <!-- Make sure loginimage.jpg sits in the same folder as header.inc (or adjust the path) -->
+            <img src="loginimage.jpg" alt="Log In" class="login-icon">
+          </a>
+        </li>
       </ul>
     </nav>
   </header>

@@ -258,6 +258,7 @@ table.team-table li {
 input[type="text"],
 input[type="email"],
 input[type="tel"],
+input[type="password"],
 
 select {
   width: 100%;
@@ -659,7 +660,7 @@ button[type="submit"]{
 }
 
 a {
-    color: white;
+    color: black;
     
 }
 
@@ -809,4 +810,192 @@ a {
 }
 
 
+main.form-container p > a.LoginStyle {
+  color: white !important;          /* force black text */
+  text-decoration: underline;
+}
 
+main.form-container p > a.LoginStyle:hover {
+  color: #333 !important;
+}
+
+/* Style the login icon in the nav */
+.user-icon-link .login-icon {
+  height: 40px;      /* or whatever fits your header */
+  
+  vertical-align: middle;
+}
+
+
+.nav-links a.user-icon-link:hover {
+  background: none !important;  /* remove the gray/blue hover background */
+  color: inherit !important;     /* don’t change icon color */
+}
+
+/* register page css */
+/* ==== REGISTER PAGE (no-header, full-screen two-panel) ==== */
+body.register-page {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* outer grid */
+body.register-page .register-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 100%;
+  width: 100%;
+  /* big rounded corners on the overall card */
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+}
+
+/* left panel */
+body.register-page .register-left {
+  background: linear-gradient(
+    to bottom right,
+    #0D1B2A 0%,
+    #415A77 100%
+  );
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* top-left little logo pill */
+body.register-page .register-logo {
+  display: inline-block;
+  border: 1px solid #0D1B2A;
+  padding: 0.5rem 1rem;
+  color: #0D1B2A;
+  font-weight: 500;
+  margin-bottom: 2rem;
+}
+
+/* heading + subtitle */
+body.register-page .register-left h1 {
+  font-size: 2rem;
+  color: #0D1B2A;
+  margin-bottom: 0.5rem;
+}
+body.register-page .register-left .sub {
+  color: #374151;
+  margin-bottom: 2rem;
+}
+
+/* form group */
+body.register-page .form-group {
+  margin-bottom: 1rem;
+}
+body.register-page .form-group label {
+  display: block;
+  font-size: 0.9rem;
+  color: #374151;
+  margin-bottom: 0.5rem;
+}
+
+/* pill inputs */
+body.register-page input[type="text"],
+body.register-page input[type="email"],
+body.register-page input[type="password"] {
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 2rem;
+  background: #ffffff;
+  color: #0D1B2A;
+  font-size: 1rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* password eye toggle */
+body.register-page .password-wrapper {
+  position: relative;
+}
+body.register-page .password-wrapper .toggle-eye {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: #888;
+}
+
+/* primary pill button */
+body.register-page .btn-primary {
+  width: 100%;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 2rem;
+  background: #0D1B2A;
+  color: #ffffff;
+  font-size: 1.1rem;
+  cursor: pointer;
+  margin: 1rem 0;
+  transition: background 0.2s ease;
+}
+body.register-page .btn-primary:hover {
+  background: #415A77;
+}
+
+/* social buttons */
+body.register-page .social-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+
+/* footer links */
+body.register-page .register-footer {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+}
+body.register-page .register-footer a {
+  color: #0D1B2A;
+  text-decoration: underline;
+}
+
+/* right panel hero */
+body.register-page .register-right {
+  background: url('registerbackground.jpg') center/cover no-repeat;
+}
+
+/* collapse on mobile */
+@media (max-width: 768px) {
+  body.register-page .register-container {
+    grid-template-columns: 1fr;
+  }
+  body.register-page .register-right {
+    display: none;
+  }
+}
+
+body.register-page .register-left,
+body.register-page .register-left h1,
+body.register-page .register-left .sub,
+body.register-page .form-group label,
+body.register-page .register-footer a {
+  color: #fff !important;
+}
+
+/* placeholder text in the inputs */
+body.register-page input::placeholder {
+  color: rgba(255,255,255,0.7) !important;
+}
+
+/* error list can stay red, but if you want white too: */
+body.register-page .no-results li {
+  color: #fee2e2 !important;
+}
+
+/* tweak footer link hover */
+body.register-page .register-footer a:hover {
+  color: rgba(255,255,255,0.8) !important;
+}
