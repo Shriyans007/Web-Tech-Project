@@ -24,7 +24,7 @@ $action = $_POST['action'] ?? '';
 
 include 'header.inc';
 ?>
-
+  <link rel="stylesheet" href="styles/styles.css" />
 <section class="section-container">
   <div class="section-inner">
     <header class="job-header">

@@ -27,7 +27,7 @@ include 'header.inc';
 <header class="job-header">
   <h1>Job Opportunities</h1>
 </header>
-
+  <link rel="stylesheet" href="styles/styles.css" />
 <main>
   <!-- Loop over each row in the result set -->
   <?php while ($job = mysqli_fetch_assoc($result)): ?>

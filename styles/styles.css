@@ -964,8 +964,10 @@ body.register-page .register-footer a {
 
 /* right panel hero */
 body.register-page .register-right {
-  background: url('registerbackground.jpg') center/cover no-repeat;
+  background: url('../images/registerbackground.jpg') center/cover no-repeat;
+  background-size: cover;
 }
+
 
 /* collapse on mobile */
 @media (max-width: 768px) {
