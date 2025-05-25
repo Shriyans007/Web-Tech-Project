@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Enhancements Documentation</title>
-  <link rel="stylesheet" href="enhancements.css">
+  <link rel="stylesheet" href="styles/enhancements.css">
 </head>
 <body>
   <div class="enhancements-doc">
