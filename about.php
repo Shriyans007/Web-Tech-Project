@@ -14,7 +14,7 @@
     <!-- Group Photo Banner with Text -->
     <div class="hero-image">
         <figure>
-        <img id="group-pic" src="Grouppicture.png" alt="Team Group Photo" width="100">
+        <img id="group-pic" src="images/Grouppicture.png" alt="Team Group Photo" width="100">
         <figcaption>The Team, 2025</figcaption>
         </figure>
         <div class="hero-text">
@@ -46,7 +46,7 @@
                 <!-- Shriyans Card -->
                 <div class="team-column">
                     <div class="team-card">
-                        <img src="Sriyans.png" alt="Shriyans">
+                        <img src="images/Sriyans.png" alt="Shriyans">
                         <div class="team-container">
                             <h3>Shriyans Simhadri</h3>
                             <p class="team-title">Web Developer & Designer</p>
@@ -90,7 +90,7 @@
                 <!-- Mahir Card -->
                 <div class="team-column">
                     <div class="team-card">
-                        <img src="mahir.jpg" alt="Mahir">
+                        <img src="images/mahir.jpg" alt="Mahir">
                         <div class="team-container">
                             <h3>Mahir Shah</h3>
                             <p class="team-title">Project Manager</p>
@@ -135,7 +135,7 @@
                 <!-- Fletcher Card -->
                 <div class="team-column">
                     <div class="team-card">
-                        <img src="fletcher.jpg" alt="Fletcher">
+                        <img src="images/fletcher.jpg" alt="Fletcher">
                         <div class="team-container">
                             <h3>Fletcher Davis</h3>
                             <p class="team-title">Backend Developer</p>
@@ -179,7 +179,7 @@
                 <!-- Sakada Card -->
                 <div class="team-column">
                     <div class="team-card">
-                        <img src="sakada.webp" alt="Sakada">
+                        <img src="images/sakada.webp" alt="Sakada">
                         <div class="team-container">
                             <h3>Sakada Seu</h3>
                             <p class="team-title">Content Specialist</p>

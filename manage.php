@@ -157,7 +157,7 @@ include 'header.inc';
                 }
                 echo '</tr></thead><tbody>';
                 mysqli_data_seek($result, 0);
-                while ($row = mysqli_fetch_ass  oc($result)) {
+                while ($row = mysqli_fetch_assoc($result)) {
                   echo '<tr>';
                   foreach ($row as $cell) {
                     echo '<td>' . htmlspecialchars($cell) . '</td>';
