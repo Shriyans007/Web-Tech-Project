@@ -34,60 +34,78 @@
                     <tr>
                         <td>Job reference number</td>
                         <td>
-                            <select name="number" id="number" required="required">
+                            <label for="number">Job reference number</label>
+                            <select name="number" id="number" required>
                                 <option value="" disabled selected>Select your reference number</option>
                                 <option value="SE123">SE123</option>
                                 <option value="CS789">CS789</option>
-
                             </select>
                         </td>
                     </tr>
                     <tr>
                         <td>First Name</td>
                         <td>
-                            <label><em>Please enter your first name:</em><input type="text" name="first-name" id="first-name"
-                                    maxlength="20" pattern="[a-zA-Z]+$" required></label>
+                            <label for="first-name"><em>Please enter your first name:</em></label>
+                            <input type="text" name="first-name" id="first-name" maxlength="20" pattern="[a-zA-Z]+$" required>
+
                         </td>
                     </tr>
                     <tr>
                         <td>Last name</td>
                         <td>
-                            <Label><em>Please enter your last name:</em><input type="text" name="last-name" id="last-name"
-                                    maxlength="20" pattern="[a-zA-Z]+$" required></Label>
+                            <label for="last-name"><em>Please enter your last name:</em></label><br>
+                            <input type="text" name="last-name" id="last-name" maxlength="20" pattern="[a-zA-Z]+$" required>
                         </td>
                     </tr>
                     <tr>
                         <td>Date of birth</td>
-                        <td><label><em>Please enter your birthday:</em><input type="text" name="dob" id="dob" maxlength="10"
-                                    placeholder="dd/mm/yyyy" pattern="\d{1,2}/\d{1,2}/\d{4}" required></label></td>
+                        <td>
+                            <label for="dob"><em>Please enter your birthday:</em></label><br>
+                            <input type="date" name="dob" id="dob" required>
+                        </td>
                     </tr>
                     <tr>
                         <td>Gender</td>
                         <td>
                             <fieldset>
                                 <legend>Please select your gender:</legend>
-                                <label><input type="radio" name="gender" value="m" required> Male</label>
-                                <label><input type="radio" name="gender" value="f"> Female</label>
-                                <label><input type="radio" name="gender" value="o"> Other</label>
-                                <label><input type="radio" name="gender" value="p"> Prefer not to say</label>
 
+                                <input type="radio" id="gender-m" name="gender" value="m" required>
+                                <label for="gender-m">Male</label>
+
+                                <input type="radio" id="gender-f" name="gender" value="f">
+                                <label for="gender-f">Female</label>
+
+                                <input type="radio" id="gender-o" name="gender" value="o">
+                                <label for="gender-o">Other</label>
+
+                                <input type="radio" id="gender-p" name="gender" value="p">
+                                <label for="gender-p">Prefer not to say</label>
                             </fieldset>
+
                         </td>
                     </tr>
                     <tr>
                         <td>Street Address</td>
-                        <td><label><em>Please enter your address:</em><input type="text" name="address" id="address"
-                                    maxlength="40" required></label></td>
+                        <td>
+                            <label for="address"><em>Please enter your address:</em></label><br>
+                            <input type="text" name="address" id="address" maxlength="40" required>
+                        </td>
+
                     </tr>
                     <tr>
                         <td>Suburb/Town</td>
-                        <td><label><em>Please enter your suburb/town:</em><input type="text" name="suburb" id="suburb"
-                                    maxlength="40" required></label></td>
+                        <td>
+                            <label for="suburb"><em>Please enter your suburb/town:</em></label><br>
+                            <input type="text" name="suburb" id="suburb" maxlength="40" required>
+                        </td>
+
                     </tr>
                     <tr>
                         <td>State</td>
                         <td>
-                            <select name="state" id="state" required="required">
+                            <label for="state">State</label><br>
+                            <select name="state" id="state" required>
                                 <option value="" disabled selected>Select your state</option>
                                 <option value="VIC">VIC</option>
                                 <option value="NSW">NSW</option>
@@ -97,50 +115,66 @@
                                 <option value="TAS">TAS</option>
                                 <option value="ACT">ACT</option>
                             </select>
+
                         </td>
                     </tr>
                     <tr>
                         <td>Postcode</td>
-                        <td><label><em>Please enter your postcode:</em><input type="text" name="postcode" id="postcode"
-                                    pattern="\d{4}" required></label></td>
+                        <td>
+                            <label for="postcode"><em>Please enter your postcode:</em></label><br>
+                            <input type="text" name="postcode" id="postcode" pattern="\d{4}" required>
+                        </td>
+
                     </tr>
                     <tr>
                         <td>Email address</td>
-                        <td><label><em>Please enter your email:</em><input type="email" name="email" id="email"
-                                    placeholder="name@example.com" required></label></td>
+                            <td>
+                            <label for="email"><em>Please enter your email:</em></label><br>
+                            <input type="email" name="email" id="email" placeholder="name@example.com" required>
+                            </td>
                     </tr>
                     <tr>
                         <td>Phone Number</td>
-                        <td><label><em>Please enter your phone number:</em><br><input type="tel" name="phone"
-                                     pattern="[\d\s]{8,12}" required>
-                            </label>
+                        <td>
+                            <label for="phone"><em>Please enter your phone number:</em></label><br>
+                            <input type="tel" id="phone" name="phone" pattern="[\d\s]{8,12}" required>
                         </td>
+
 
                     </tr>
 
                     <tr>
                         <td>Required Technical List</td>
-
                         <td>
-                            <label><input type="checkbox" name="technical_skills[]" value="NWS" required>Network
-                                Security</label>
-                            <label><input type="checkbox" name="technical_skills[]" value="EPS">Endpoint
-                                Security</label><br>
-                            <label><input type="checkbox" name="technical_skills[]" value="APS">Application
-                                Security</label>
-                            <label><input type="checkbox" name="technical_skills[]" value="ETH">Ethical
-                                Hacking</label><br>
-                            <label><input type="checkbox" name="technical_skills[]" value="THH">Threat Hunting
-                            </label>
+                        <fieldset>
+                            <legend>Technical Skills</legend>
 
+                            <input type="checkbox" id="tech-nws" name="technical_skills[]" value="NWS">
+                            <label for="tech-nws">Network Security</label>
+
+                            <input type="checkbox" id="tech-eps" name="technical_skills[]" value="EPS">
+                            <label for="tech-eps">Endpoint Security</label><br>
+
+                            <input type="checkbox" id="tech-aps" name="technical_skills[]" value="APS">
+                            <label for="tech-aps">Application Security</label>
+
+                            <input type="checkbox" id="tech-eth" name="technical_skills[]" value="ETH">
+                            <label for="tech-eth">Ethical Hacking</label><br>
+
+                            <input type="checkbox" id="tech-thh" name="technical_skills[]" value="THH">
+                            <label for="tech-thh">Threat Hunting</label>
+                        </fieldset>
                         </td>
+
                     </tr>
 
                     <tr>
                         <td>Other Skills</td>
-                        <td><label><em>Please enter any other related skills:</em><textarea style="resize: none;"
-                                    name="other_skills" rows="4" cols="40">
-                        </textarea></label></td>
+                        <td>
+                            <label for="other_skills"><em>Please enter any other related skills:</em></label><br>
+                            <textarea id="other_skills" name="other_skills" rows="4" cols="40" style="resize: none;" placeholder="e.g., cloud computing, scripting languages, DevOps tools"></textarea>
+                        </td>
+
 
                     </tr>
 
