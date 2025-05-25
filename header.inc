@@ -11,7 +11,7 @@
   <header class="site-header">
     <div class="logo">
       <a href="index.php">
-        <img src="SuperNovaLogo.png" alt="Cyber Nova Inc. Logo" style="height: 100px;">
+        <img src="images/SuperNovaLogo.png" alt="Cyber Nova Inc. Logo" style="height: 100px;">
       </a>
     </div>
     <nav>
@@ -24,7 +24,7 @@
         <li>
           <a href="login.php" title="Login or Register" class="user-icon-link">
             <!-- Make sure loginimage.jpg sits in the same folder as header.inc (or adjust the path) -->
-            <img src="loginimage.jpg" alt="Log In" class="login-icon">
+            <img src="images/loginimage.jpg" alt="Log In" class="login-icon">
           </a>
         </li>
       </ul>

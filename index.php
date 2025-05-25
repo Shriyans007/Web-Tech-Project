@@ -19,12 +19,12 @@
       </div>
     
       <div class="hero-image">
-        <img src="homepageimage.jpg" alt="Team Group Photo" width="100">
+        <img src="images/homepageimage.jpg" alt="Team Group Photo" width="100">
         </div>
     
 
       <div class="image-container">
-        <img src="welcomeimage.jpg " class= "image2" alt="Description of the image">
+        <img src="images/welcomeimage.jpg " class= "image2" alt="Description of the image">
         <div class="text-container">
             <br> <br> <br>
             <h2>Welcome to Cyber Nova</h2>
