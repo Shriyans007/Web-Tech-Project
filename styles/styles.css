@@ -1000,4 +1000,26 @@ body.register-page .register-footer a:hover {
   color: rgba(255,255,255,0.8) !important;
 }
 
+.layout {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 20px;
+  align-items: start;
+  margin: 20px;
+}
+
+aside {
+  background-color: #f9f9f9;
+  padding: 1em;
+  border-left: 4px solid #ccc;
+}
+
+ol {
+  padding-left: 20px;
+  margin-bottom: 1em;
+}
+
+ol li {
+  margin-bottom: 0.5em;
+}
 
