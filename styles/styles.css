@@ -1025,3 +1025,41 @@ ol li {
   margin-bottom: 0.5em;
 }
 
+.table-wrapper {
+  overflow-x: auto;
+  margin-top: 20px;
+}
+
+.eoi-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  text-align: left;
+  table-layout: auto;
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+}
+
+.eoi-table thead {
+  background-color: #f5f5f5;
+}
+
+.eoi-table th,
+.eoi-table td {
+  padding: 10px 12px;
+  white-space: nowrap; /* Prevent header/data wrapping */
+  vertical-align: top;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.eoi-table th {
+  font-weight: 600;
+}
+
+.eoi-table tbody tr:hover {
+  background-color: #f9f9f9;
+}
+
+
