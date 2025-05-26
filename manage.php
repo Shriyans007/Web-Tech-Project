@@ -1,179 +1,108 @@
 <?php
+// Start the session to support user tracking or access control (e.g., login)
 session_start();
 
-// 0. Redirect guests to login
-if (!isset($_SESSION['user_id'])) {
-    header("Location: login.php");
-    exit;
-}
+// Include database connection settings
+require_once 'settings.php';
 
-require_once("settings.php");
-
-// 1. Connect
+// Connect to the database
 $conn = mysqli_connect($host, $username, $password, $database);
 if (!$conn) {
-    die("Database connect failed: " . mysqli_connect_error());
+    die("Database connection failed: " . mysqli_connect_error());
 }
 
-// 2. Sanitizer helper
-function clean($s) {
-    return mysqli_real_escape_string($GLOBALS['conn'], trim($s));
+// Fetch all job descriptions from the database
+$sql = "SELECT * FROM jobs ORDER BY id";
+$result = mysqli_query($conn, $sql);
+if (!$result) {
+    die("Query error: " . mysqli_error($conn));
 }
 
-$action = $_POST['action'] ?? '';
-
+// Include common header HTML (menu, opening <body>, etc.)
 include 'header.inc';
 ?>
-  <link rel="stylesheet" href="styles/styles.css" />
-<section class="section-container">
-  <div class="section-inner">
-    <header class="job-header">
-      <h1>Manage Expressions of Interest</h1>
-    </header>
 
-    <div class="manage-container">
-      <!-- SIDEBAR -->
-      <div class="manage-sidebar">
-        <form class="manage-form" method="post" novalidate>
-          <input type="hidden" name="action" value="list_all">
-          <button type="submit">List All EOIs</button>
-        </form>
+<!-- Header section with the main title -->
+<header class="job-header">
+  <h1>Job Opportunities</h1>
+</header>
 
-        <form class="manage-form" method="post" novalidate>
-          <input type="hidden" name="action" value="filter_job">
-          <label>Job Reference
-            <input type="text" name="job_ref" required>
-          </label>
-          <button type="submit">Filter by Job</button>
-        </form>
+<!-- Container that uses CSS Grid to place main and aside side-by-side -->
+<div class="layout">
 
-        <form class="manage-form" method="post" novalidate>
-          <input type="hidden" name="action" value="filter_applicant">
-          <label>First Name
-            <input type="text" name="first_name">
-          </label>
-          <label>Last Name
-            <input type="text" name="last_name">
-          </label>
-          <button type="submit">Filter by Applicant</button>
-        </form>
+  <!-- Main content section that lists all job descriptions -->
+  <main>
+    <?php while ($job = mysqli_fetch_assoc($result)): ?>
+      <?php 
+        // Create a clean anchor ID from the job title (e.g., "Web Developer" -> "web_developer")
+        $anchor = strtolower(preg_replace('/[^\w]+/', '_', trim($job['title'])));
+      ?>
+      <section id="<?php echo htmlspecialchars($anchor); ?>">
+        <h2><?php echo htmlspecialchars($job['title']); ?></h2>
 
-        <form class="manage-form" method="post" novalidate
-              onsubmit="return confirm('Delete all EOIs for this job? This cannot be undone.');">
-          <input type="hidden" name="action" value="delete_job">
-          <label>Job Reference to Delete
-            <input type="text" name="delete_job_ref" required>
-          </label>
-          <button type="submit">Delete EOIs</button>
-        </form>
+        <!-- Basic job information -->
+        <p><strong>Reference Number:</strong>
+          <?php echo htmlspecialchars($job['ref_number']); ?>
+        </p>
 
-        <form class="manage-form" method="post" novalidate>
-          <input type="hidden" name="action" value="change_status">
-          <label>EOI Number
-            <input type="number" name="eoi_number" required>
-          </label>
-          <label>New Status
-            <select name="new_status" required>
-              <option>Pending</option>
-              <option>Accepted</option>
-              <option>Rejected</option>
-            </select>
-          </label>
-          <button type="submit">Change Status</button>
-        </form>
-      </div>
+        <p><strong>Salary Range:</strong>
+          <?php echo htmlspecialchars($job['salary_range']); ?>
+        </p>
 
-      <!-- CONTENT -->
-      <div class="manage-content">
-        <div class="table-wrapper">
+        <p><strong>Reports To:</strong>
+          <?php echo htmlspecialchars($job['reports_to']); ?>
+        </p>
+
+        <!-- Job description with line breaks preserved -->
+        <h3>Job Description</h3>
+        <p><?php echo nl2br(htmlspecialchars($job['description'])); ?></p>
+
+        <!-- Responsibilities listed using an ordered list -->
+        <h3>Key Responsibilities</h3>
+        <ol>
           <?php
-          if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-              $sql = '';
-
-              switch ($action) {
-                  case 'list_all':
-                      $sql = "SELECT * FROM eoi ORDER BY EoiNumber";
-                      break;
-
-                  case 'filter_job':
-                      $jr  = clean($_POST['job_ref'] ?? '');
-                      $sql = "SELECT * FROM eoi
-                              WHERE Job_Reference_number='$jr'
-                              ORDER BY EoiNumber";
-                      break;
-
-                  case 'filter_applicant':
-                      $fn   = clean($_POST['first_name'] ?? '');
-                      $ln   = clean($_POST['last_name']  ?? '');
-                      $conds = [];
-                      if ($fn !== '') $conds[] = "First_name='$fn'";
-                      if ($ln !== '') $conds[] = "Last_name='$ln'";
-                      if (empty($conds)) {
-                          echo '<p class="no-results">Enter first name, last name, or both.</p>';
-                          break;
-                      }
-                      $where = implode(' AND ', $conds);
-                      $sql = "SELECT * FROM eoi
-                              WHERE $where
-                              ORDER BY EoiNumber";
-                      break;
-
-                  case 'delete_job':
-                      $del_ref = clean($_POST['delete_job_ref'] ?? '');
-                      $res     = mysqli_query($conn,
-                                  "DELETE FROM eoi
-                                   WHERE Job_Reference_number='$del_ref'");
-                      $count   = $res ? mysqli_affected_rows($conn) : 0;
-                      echo "<p>Deleted $count record(s) for job '$del_ref'.</p>";
-                      break;
-
-                  case 'change_status':
-                      $num = (int)($_POST['eoi_number'] ?? 0);
-                      $st  = clean($_POST['new_status'] ?? '');
-                      $ok  = mysqli_query($conn,
-                                  "UPDATE eoi
-                                   SET Status='$st'
-                                   WHERE EoiNumber=$num");
-                      echo $ok
-                          ? "<p>EOI #$num status changed to '$st'.</p>"
-                          : '<p class="no-results">Error updating status.</p>';
-                      break;
-              }
-
-              // If a SELECT was built, run and render it:
-              if ($sql) {
-                  $result = mysqli_query($conn, $sql);
-                  if (!$result) {
-                      echo "<p class='no-results'>Query error: " . mysqli_error($conn) . "</p>";
-                  } elseif (mysqli_num_rows($result) === 0) {
-                      echo '<p class="no-results">No records found.</p>';
-                  } else {
-                      echo '<table class="eoi-table"><thead><tr>';
-                      foreach (mysqli_fetch_fields($result) as $f) {
-                          echo '<th>' . htmlspecialchars($f->name) . '</th>';
-                      }
-                      echo '</tr></thead><tbody>';
-                      mysqli_data_seek($result, 0);
-                      while ($row = mysqli_fetch_assoc($result)) {
-                          echo '<tr>';
-                          foreach ($row as $cell) {
-                              echo '<td>' . htmlspecialchars($cell) . '</td>';
-                          }
-                          echo '</tr>';
-                      }
-                      echo '</tbody></table>';
-                      mysqli_free_result($result);
-                  }
-              }
-          }
+            // Split responsibilities on new lines and list them as <li>
+            $responsibilities = explode("\n", trim($job['responsibilities']));
+            foreach ($responsibilities as $item) {
+              echo '<li>' . htmlspecialchars($item) . '</li>';
+            }
           ?>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+        </ol>
+
+        <!-- Qualifications section -->
+        <h3>Qualifications and Skills</h3>
+        <h4>Essential</h4>
+        <?php echo $job['qualifications_essential']; ?>
+
+        <!-- Preferable qualifications shown only if not empty -->
+        <?php if (!empty($job['qualifications_preferable'])): ?>
+          <h4>Preferable</h4>
+          <?php echo $job['qualifications_preferable']; ?>
+        <?php endif; ?>
+
+        <!-- Apply button links to application form with job reference -->
+        <a href="apply.php?ref=<?php echo urlencode($job['ref_number']); ?>" class="button">
+          <span>Apply now</span>
+        </a>
+      </section>
+    <?php endwhile; ?>
+  </main>
+
+  <!-- Aside section providing supplementary company info -->
+  <aside>
+    <h3>Why Work With Us?</h3>
+    <p>We offer competitive salaries, remote work options, and professional development programs.</p>
+  </aside>
+
+</div> <!-- End of .layout wrapper -->
 
 <?php
+// Free up result memory
+mysqli_free_result($result);
+
+// Close the database connection
 mysqli_close($conn);
+
+// Include footer HTML (closing </body></html>)
 include 'footer.inc';
 ?>
