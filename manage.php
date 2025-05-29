@@ -22,7 +22,7 @@ $action = $_POST['action'] ?? '';
 // Includes the header
 include 'header.inc';
 ?>
-
+<link rel="stylesheet" href="styles/styles.css" />
 <!-- Page content -->
 <section class="section-container">
   <div class="section-inner">

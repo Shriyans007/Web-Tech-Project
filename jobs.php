@@ -25,7 +25,7 @@ include 'header.inc';
 <header class="job-header">
   <h1>Job Opportunities</h1>
 </header>
-
+<link rel="stylesheet" href="styles/styles.css" />
   
 <main>
   
